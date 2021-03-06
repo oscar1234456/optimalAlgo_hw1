@@ -1,0 +1,30 @@
+chr1 = 'ATGSSSTTTTATGADDSATGGG';
+chr2 = 'ATG';
+chr3 = 'TAA'
+
+flag = false;
+res = [];
+
+for i = 1:1:length(chr1)
+   for j = 1:1:length(chr2)
+%        disp(i+j);
+       if i+(j-1) > length(chr1)
+           break;
+       end
+       if chr1(i+j-1) ~= chr2(j)
+           break;
+       end
+       if j==length(chr2)-1
+           flag = true;
+           res(length(res)+1) = i-1;
+%            start to find end code
+           for k=i+2:1:length(chr1)
+                for z=1:1:length(chr3):
+                    disp("!23");
+                end
+           end
+       end
+   end
+end  
+% position = strfind(str1,str2);
+disp(flag);
