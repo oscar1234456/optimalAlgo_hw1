@@ -10,7 +10,9 @@ flag = false;
 findATG = false;
 res = [];
 finalres = [];
-for i = 1:1:length(chr1)
+i = 1;
+%for i = 1:1:length(chr1)
+while i<=length(chr1)
    for j = 1:1:length(chr2)
 %        disp(i+j);
        if i+(j-1) > length(chr1)
@@ -32,37 +34,18 @@ for i = 1:1:length(chr1)
            %disp(i);
            res(length(res)+1) = i;
 %            start to find end code
-           sflag = true;
-           if i+3 > length(chr1)
-               %No need to find TAA, TAG, TGA more
-               disp("no gene is found (No TAA, TAG, TGA postfix)");
-               return %Exit program
-           end
-           for k=i+3:1:length(chr1)
-               %disp("k");
-               %disp(k);
-               if sflag ~= true
-                   break;
-               end
-                for z=1:1:length(chr3)
-                     if k+(z-1) > length(chr1)
-                        disp("no gene is found (No TAA, TAG, TGA postfix)");
-                        return %Exit program
-                     end
-                    if chr1(k+z-1) ~= chr3(z) && chr1(k+z-1)~=chr4(z) && chr1(k+z-1)~=chr5(z)
-                        break;
-                     end
-                       if z==length(chr3)
-                           %disp("12312313");
-                           %disp(k);
-                           %disp(z-1);
-                          disp(chr1(i+3:k-1));
-                            sflag=false;
-                       end
-                end
-           end
+           %sflag = true;
+          a = findPostFix(i,chr1);
+          if a(1)==-1
+              return
+          else
+            i = a(1)-1;
+            disp("i");
+            disp(i);
+          end
         end
-    end  
+   end
+    i= i+1;
 end
 if findATG == false
     disp("no gene is found (No ATG Prefix)");
