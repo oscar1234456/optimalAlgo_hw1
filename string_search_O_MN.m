@@ -1,16 +1,12 @@
 tempString = input("Enter a Chromosome string:", "s");
 chr1 = convertStringsToChars(tempString);
 chr2 = 'ATG';
-sflag = true;
-flag = false;
 findATG = false;
-res = [];
-finalres = [];
+
 i = 1;
-%for i = 1:1:length(chr1)
+
 while i<=length(chr1)
    for j = 1:1:length(chr2)
-%        disp(i+j);
        if i+(j-1) > length(chr1)
            % Cannot find ATG prefix
            if findATG == false
@@ -25,19 +21,12 @@ while i<=length(chr1)
        if j==length(chr2)
            % already find ATG Prefix
            findATG = true;
-           flag = true;
-          % disp("i:");
-           %disp(i);
-           res(length(res)+1) = i;
-%            start to find end code
-           %sflag = true;
+           %  start to find end code
           a = findPostFix(i,chr1);
           if a(1)==-1
               return
           else
             i = a(1)-1;
-            disp("i");
-            disp(i);
           end
         end
    end
@@ -47,5 +36,3 @@ if findATG == false
     disp("no gene is found (No ATG Prefix)");
     return
 end
-% position = strfind(str1,str2);
-% disp(flag);

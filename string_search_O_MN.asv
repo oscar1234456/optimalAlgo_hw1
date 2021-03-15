@@ -1,16 +1,14 @@
-% chr1 = 'TTATGTTTTAAGGATGGGGCGTTAATT';
 tempString = input("Enter a Chromosome string:", "s");
 chr1 = convertStringsToChars(tempString);
 chr2 = 'ATG';
-chr3 = 'TAA';
-chr4 = 'TAG';
-chr5 = 'TGA';
 sflag = true;
 flag = false;
 findATG = false;
 res = [];
 finalres = [];
-for i = 1:1:length(chr1)
+i = 1;
+%for i = 1:1:length(chr1)
+while i<=length(chr1)
    for j = 1:1:length(chr2)
 %        disp(i+j);
        if i+(j-1) > length(chr1)
@@ -37,16 +35,15 @@ for i = 1:1:length(chr1)
           if a(1)==-1
               return
           else
-            i = a(2)
+            i = a(1)-1;
+            disp("i");
+            disp(i);
           end
-       
-           
         end
-    end  
+   end
+    i= i+1;
 end
 if findATG == false
     disp("no gene is found (No ATG Prefix)");
     return
 end
-% position = strfind(str1,str2);
-% disp(flag);
