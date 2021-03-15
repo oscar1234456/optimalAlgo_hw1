@@ -33,9 +33,15 @@ chr5 = 'TGA';
                            %disp("12312313");
                            %disp(k);
                            %disp(z-1);
-                           disp("The Gene Sequence:")
-                           disp(chr1(i+3:k-1));
-                            %sflag=false;
+                           slices = (chr1(i+3:k-1));
+                           if mod(length(slices), 3) == 0
+                               disp("The Normal Gene Sequence:")
+                                %sflag=false;         
+                           else
+                                 disp("Abnormal Gene Sequence! (length is not a multiple of three)")
+                           end
+                            disp("Here:");
+                            disp(chr1(i+3:k-1));
                             status = k+3; %Continue
                             return %Exit Function
                        end
