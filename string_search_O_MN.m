@@ -1,10 +1,6 @@
-% chr1 = 'TTATGTTTTAAGGATGGGGCGTTAATT';
 tempString = input("Enter a Chromosome string:", "s");
 chr1 = convertStringsToChars(tempString);
 chr2 = 'ATG';
-chr3 = 'TAA';
-chr4 = 'TAG';
-chr5 = 'TGA';
 sflag = true;
 flag = false;
 findATG = false;
