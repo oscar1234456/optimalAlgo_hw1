@@ -25,7 +25,7 @@ end
                      end
                        if z==length(chr3)
                            slices = (chr1(i+3:k-1));
-                           if mod(length(slices), 3) == 0
+                           if ~isempty(slices) && mod(length(slices), 3) == 0
                                disp("The Normal Gene Sequence:")         
                            else
                                disp("Abnormal Gene Sequence! (length is not a multiple of three)")
